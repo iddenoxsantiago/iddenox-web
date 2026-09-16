@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+  <mask id="cutout-yellow">
+    <rect width="1024" height="1024" fill="white"/>
+    <circle cx="613" cy="753" r="192" fill="black"/>
+  </mask>
+  <circle cx="499" cy="355" r="395" fill="#F4D036" mask="url(#cutout-yellow)"/>
+  <circle cx="613" cy="753" r="168" fill="#F4D036"/>
+</svg>
