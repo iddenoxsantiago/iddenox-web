@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iddenox | Conciliación Operativa & Automatización Financiera</title>
+  <meta name="description" content="Frena las fugas silenciosas de margen por datos desfasados, inventarios fantasma y discrepancias entre almacén, ERP, facturación SAT y bancos.">
+  
+  <!-- Google Fonts: Poppins (Regular, Medium, SemiBold, Bold, ExtraBold, Black) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Chart.js CDN for Clean Flat Data Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            idyellow: '#F4D036',
+            idblack: '#0C0E12',
+            idwhite: '#FFFFFF',
+            idgray: '#F8F9FA',
+            idcard: '#FFFFFF',
+            idborder: '#E9ECEF',
+            idred: '#DC2626',
+            idgreen: '#16A34A',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FFFFFF;
+      color: #0C0E12;
+      font-family: 'Poppins', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Anulación universal de degradados y sombras difusas */
+    *, *::before, *::after {
+      box-shadow: none !important;
+      text-shadow: none !important;
+      background-image: none !important;
+    }
+
+    input[type=range] {
+      accent-color: #0C0E12;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="selection:bg-idblack selection:text-idyellow font-sans">
+
+  <!-- ======================================================== -->
+  <!-- HEADER / NAVBAR: AMARILLO VIBRANTE (#F4D036) CON LOGO    -->
+  <!-- Logo a la izquierda extrema, botón a la derecha extrema  -->
+  <!-- ======================================================== -->
+  <header class="w-full bg-idyellow border-b border-black/10 sticky top-0 z-50">
+    <div class="w-full px-5 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+      
+      <!-- Logo Iddenox sobre Amarillo (Alineado a la izquierda) -->
+      <a href="#" class="flex items-center space-x-3 group shrink-0">
+        <img src="assets/logo_white_clean.png" alt="Iddenox Logo" class="h-11 w-auto object-contain transition-transform group-hover:scale-105">
+        <span class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-none">
+          Iddenox
+        </span>
+      </a>
+
+      <!-- Navegación central amplia con espacio desahogado -->
+      <nav class="hidden lg:flex items-center space-x-7 text-xs uppercase font-bold tracking-wider text-idblack">
+        <a href="#escenarios" class="hover:opacity-75 transition-opacity">Escenarios de Riesgo</a>
+        <a href="#graficas" class="hover:opacity-75 transition-opacity">Gráficas de Impacto</a>
+        <a href="#motor" class="hover:opacity-75 transition-opacity">Cómo Conciliamos</a>
+        <a href="#simulador" class="hover:opacity-75 transition-opacity">Simulador de Fugas</a>
+        <a href="#poliza" class="hover:opacity-75 transition-opacity">Póliza</a>
+      </nav>
+
+      <!-- Botón de acción alineado a la derecha extrema -->
+      <div class="flex items-center shrink-0">
+        <a href="#contacto" class="px-4 py-2 bg-idblack text-idyellow font-bold text-xs uppercase tracking-wider rounded-lg hover:bg-white hover:text-idblack transition-all">
+          Auditar 50 Filas
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- SECCIÓN 1: HERO (BLANCO CON ALTO CONTRASTE Y MOCKUP)      -->
+  <!-- ======================================================== -->
+  <section class="bg-idwhite py-14 lg:py-20 border-b border-idborder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Columna de Texto Principal -->
+        <div class="lg:col-span-7">
+          
+          <!-- Badge Editorial Redondeado -->
+          <div class="inline-flex items-center space-x-2 bg-idyellow px-3.5 py-1.5 rounded-full mb-6">
+            <span class="w-2 h-2 rounded-full bg-idblack"></span>
+            <span class="text-xs font-bold uppercase tracking-wider text-idblack">
+              Auditoría Forense Cruzada en México
+            </span>
+          </div>
+
+          <!-- Titular Masivo en Poppins Bold -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-idblack leading-[1.12]">
+            Controla Tus Conciliaciones Y Detén Fugas Silenciosas De Margen.
+          </h1>
+
+          <!-- Bajada Corporativa -->
+          <p class="mt-6 text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl">
+            Auditamos y cruzamos automáticamente las discrepancias entre tu <strong class="text-idblack font-bold">ERP, almacén, facturación SAT 4.0 y cuentas bancarias</strong>. Detectamos mermas fantasma y cobros desfasados sin reemplazar tus sistemas ni frenar tu operación.
+          </p>
+
+          <!-- Botones de Acción -->
+          <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a href="#contacto" class="px-7 py-3.5 bg-idyellow text-idblack font-extrabold text-sm uppercase tracking-wider rounded-xl hover:bg-idblack hover:text-idwhite transition-colors text-center">
+              Solicitar Diagnóstico Ciego (50 Filas Gratis) &rarr;
+            </a>
+            <a href="#escenarios" class="px-7 py-3.5 bg-idgray text-idblack font-bold text-sm uppercase tracking-wider rounded-xl border border-slate-200 hover:bg-slate-200 transition-colors text-center">
+              Ver Escenarios de Riesgo
+            </a>
+          </div>
+
+          <!-- Micro-garantías institucionales -->
+          <div class="mt-8 pt-6 border-t border-slate-100 flex flex-wrap items-center gap-6 text-xs font-semibold uppercase text-slate-700">
+            <div class="flex items-center space-x-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-idgreen"></span>
+              <span>100% Confidencial (NDA firmado)</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-idgreen"></span>
+              <span>Sin Cambios de Software</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-idgreen"></span>
+              <span>Entrega en 48 Horas</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Mockup Visual Redondeado -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl border border-slate-200 bg-idwhite overflow-hidden">
+            
+            <!-- Barra Superior de Terminal -->
+            <div class="bg-idblack text-idwhite px-5 py-3.5 flex items-center justify-between">
+              <div class="flex items-center space-x-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-idyellow inline-block"></span>
+                <span class="text-xs font-bold uppercase tracking-wider text-idwhite">IDDENOX ENGINE // AUDITORÍA EN TIEMPO REAL</span>
+              </div>
+              <span class="text-[11px] bg-idred text-white px-2.5 py-0.5 rounded-full font-bold uppercase">
+                3 Discrepancias
+              </span>
+            </div>
+
+            <!-- Contenido del Tablero / Cruce de Datos -->
+            <div class="p-5 space-y-3 bg-slate-50/70">
+              
+              <!-- Item 1: Discrepancia Almacén vs ERP -->
+              <div class="rounded-xl border border-slate-200 p-4 bg-idwhite">
+                <div class="flex items-center justify-between text-xs font-bold">
+                  <span class="text-idblack">Lote ALM-4091 // Material Quirúrgico</span>
+                  <span class="text-idred font-extrabold">-$84,200 MXN</span>
+                </div>
+                <div class="mt-2.5 text-xs grid grid-cols-3 gap-2 pt-2 border-t border-slate-100">
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">Kardex ERP</span>
+                    <span class="font-bold text-idblack">1,500 pzas</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">Físico WMS</span>
+                    <span class="font-bold text-idred">1,280 pzas (-220)</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">Estado SAT</span>
+                    <span class="font-bold text-idblack">1,500 CFDI</span>
+                  </div>
+                </div>
+                <div class="mt-2.5 text-[11px] text-idred font-semibold">
+                  &bull; Merma no registrada en salida de bodega
+                </div>
+              </div>
+
+              <!-- Item 2: Factura SAT Cancelada en Silencio -->
+              <div class="rounded-xl border border-slate-200 p-4 bg-idwhite">
+                <div class="flex items-center justify-between text-xs font-bold">
+                  <span class="text-idblack">CFDI FAC-9821 // Cliente Mayorista Bajío</span>
+                  <span class="text-idred font-extrabold">-$142,500 MXN</span>
+                </div>
+                <div class="mt-2.5 text-xs grid grid-cols-3 gap-2 pt-2 border-t border-slate-100">
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">Saldo en ERP</span>
+                    <span class="font-bold text-idblack">$142,500 Por Cobrar</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">Buzón SAT</span>
+                    <span class="font-bold text-idred">Cancelado (04)</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">Depósito Banco</span>
+                    <span class="font-bold text-slate-500">$0.00</span>
+                  </div>
+                </div>
+                <div class="mt-2.5 text-[11px] text-idblack font-semibold bg-idyellow/40 px-2.5 py-1 rounded-md inline-block">
+                  Alerta: Factura cancelada por cliente sin notificación
+                </div>
+              </div>
+
+              <!-- Item 3: Saldo Conciliado con Éxito -->
+              <div class="rounded-xl border border-slate-200 p-4 bg-idwhite">
+                <div class="flex items-center justify-between text-xs font-bold">
+                  <span class="text-idblack">SPEI BANCO-8102 // Conciliación Diaria</span>
+                  <span class="text-idgreen font-extrabold">Conciliado 100%</span>
+                </div>
+                <div class="mt-2.5 text-xs grid grid-cols-3 gap-2 pt-2 border-t border-slate-100">
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">Depósito BBVA</span>
+                    <span class="font-bold text-idblack">$389,000.00</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">Póliza Contable</span>
+                    <span class="font-bold text-idblack">$389,000.00</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">CFDI Pago PPD</span>
+                    <span class="font-bold text-idgreen">Emitido</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Resumen Total Redondeado -->
+              <div class="bg-idblack text-idwhite p-4 rounded-xl flex items-center justify-between">
+                <div>
+                  <span class="text-[11px] uppercase text-slate-400 font-semibold block">Fuga Total Auditada en Muestra</span>
+                  <span class="text-xl font-extrabold text-idyellow">$226,700 MXN</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-[11px] uppercase bg-idgreen text-white px-3 py-1 rounded-full font-bold">
+                    Recuperable
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECCIÓN 2: ESCENARIOS DE RIESGO (AMARILLO #F4D036)       -->
+  <!-- Sustituye historias reales y métricas con texto exacto   -->
+  <!-- ======================================================== -->
+  <section id="escenarios" class="bg-idyellow py-20 border-b border-black/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- MÉTRICA PRINCIPAL: BANNER INSTITUCIONAL LIMPIO -->
+      <div class="bg-idwhite rounded-3xl p-6 sm:p-8 mb-14 border border-black/5 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 rounded-2xl bg-idblack text-idyellow font-black text-xl flex items-center justify-center shrink-0">
+            %
+          </div>
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500 block">
+              MÉTRICA PRINCIPAL:
+            </span>
+            <p class="text-base sm:text-xl font-bold text-idblack mt-0.5 leading-snug">
+              Fuga Oculta Promedio en la Industria: <span class="bg-idyellow px-2 py-0.5 rounded-lg text-idblack font-black">1.5% a 3.5% de la facturación total</span>, debido a errores de conciliación manual.
+            </p>
+          </div>
+        </div>
+        <div class="shrink-0">
+          <a href="#simulador" class="px-5 py-2.5 bg-idblack text-idyellow font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-slate-800 transition-all inline-block">
+            Calcular mi Impacto
+          </a>
+        </div>
+      </div>
+
+      <!-- TÍTULO DE SECCIÓN -->
+      <div class="max-w-3xl mb-12">
+        <div class="inline-block bg-idblack text-idyellow text-xs font-bold uppercase px-3.5 py-1 rounded-full mb-3">
+          TÍTULO DE SECCIÓN
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-idblack tracking-tight uppercase">
+          Escenarios de Riesgo: Lo que nuestro motor detecta en tus datos
+        </h2>
+        <p class="mt-3 text-idblack font-medium text-base sm:text-lg">
+          Estos son los desfases operativos y fiscales más comunes que nuestro middleware encuentra al cruzar un ERP (Dynamics, SAP) contra el SAT 4.0:
+        </p>
+      </div>
+
+      <!-- GRID DE 3 TARJETAS (CARDS) LIMPIAS E INSTITUCIONALES -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+        
+        <!-- [Tarjeta 1] -->
+        <div class="bg-idwhite rounded-3xl p-7 sm:p-8 flex flex-col justify-between border border-black/5">
+          <div>
+            <!-- Badge y Encabezado del Escenario -->
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-5">
+              <span class="text-xs font-extrabold bg-idblack text-idyellow px-3 py-1 rounded-full uppercase tracking-wider">
+                Tarjeta 1
+              </span>
+              <span class="text-xs font-bold text-slate-400">SAT CFDI 4.0</span>
+            </div>
+
+            <h3 class="text-xl font-black text-idblack leading-tight mb-5">
+              Escenario 01: El Desfase del Buzón Tributario (El Cliente Fantasma)
+            </h3>
+
+            <!-- Bloque: El Problema -->
+            <div class="mb-4">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-idred mb-1">
+                El Problema:
+              </div>
+              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                El equipo de cobranza persigue facturas que en su ERP aparecen como vigentes y por cobrar.
+              </p>
+            </div>
+
+            <!-- Bloque: Lo que descubre nuestro algoritmo -->
+            <div class="mb-4 p-4 bg-idgray rounded-2xl border border-slate-100">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-idblack mb-1">
+                Lo que descubre nuestro algoritmo:
+              </div>
+              <p class="text-xs sm:text-sm text-slate-800 leading-relaxed">
+                Al cruzar el UUID masivamente contra el SAT, detectamos que el cliente canceló el CFDI válidamente, pero nadie en administración se enteró.
+              </p>
+            </div>
+
+            <!-- Bloque: El Impacto -->
+            <div class="p-4 bg-idyellow/30 rounded-2xl border border-idyellow/60">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-idblack mb-1">
+                El Impacto:
+              </div>
+              <p class="text-xs sm:text-sm text-idblack font-semibold leading-relaxed">
+                Pago de impuestos sobre ingresos inexistentes y un balance general inflado artificialmente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- [Tarjeta 2] -->
+        <div class="bg-idwhite rounded-3xl p-7 sm:p-8 flex flex-col justify-between border border-black/5">
+          <div>
+            <!-- Badge y Encabezado del Escenario -->
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-5">
+              <span class="text-xs font-extrabold bg-idblack text-idyellow px-3 py-1 rounded-full uppercase tracking-wider">
+                Tarjeta 2
+              </span>
+              <span class="text-xs font-bold text-slate-400">SPEI & Bancos</span>
+            </div>
+
+            <h3 class="text-xl font-black text-idblack leading-tight mb-5">
+              Escenario 02: La Ceguera de Comisiones Bancarias
+            </h3>
+
+            <!-- Bloque: El Problema -->
+            <div class="mb-4">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-idred mb-1">
+                El Problema:
+              </div>
+              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                Con miles de dispersiones y pagos semanales (SPEI), las comisiones, retenciones y rechazos tardan días en conciliarse manualmente en Excel.
+              </p>
+            </div>
+
+            <!-- Bloque: Lo que descubre nuestro algoritmo -->
+            <div class="p-4 bg-idgray rounded-2xl border border-slate-100">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-idblack mb-1">
+                Lo que descubre nuestro algoritmo:
+              </div>
+              <p class="text-xs sm:text-sm text-slate-800 leading-relaxed">
+                Al automatizar la lectura de los estados de cuenta contra la cartera contable, encontramos líneas de fuga en comisiones no registradas que descuadran el flujo de caja diario.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">
+              Resultado en Sistema:
+            </span>
+            <span class="text-xs font-black text-idgreen uppercase mt-0.5 block">
+              Conciliación Multicuenta Inmediata
+            </span>
+          </div>
+        </div>
+
+        <!-- [Tarjeta 3] -->
+        <div class="bg-idwhite rounded-3xl p-7 sm:p-8 flex flex-col justify-between border border-black/5">
+          <div>
+            <!-- Badge y Encabezado del Escenario -->
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-5">
+              <span class="text-xs font-extrabold bg-idblack text-idyellow px-3 py-1 rounded-full uppercase tracking-wider">
+                Tarjeta 3
+              </span>
+              <span class="text-xs font-bold text-slate-400">WMS & Almacén</span>
+            </div>
+
+            <h3 class="text-xl font-black text-idblack leading-tight mb-5">
+              Escenario 03: Inventario vs. Remisiones sin Timbrar
+            </h3>
+
+            <!-- Bloque: El Problema -->
+            <div class="mb-4">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-idred mb-1">
+                El Problema:
+              </div>
+              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                El almacén reporta piezas en físico que ya no existen, o viceversa, debido a devoluciones o notas de crédito que no se sincronizaron entre el sistema de bodega (WMS) y el ERP central.
+              </p>
+            </div>
+
+            <!-- Bloque: Lo que descubre nuestro algoritmo -->
+            <div class="p-4 bg-idgray rounded-2xl border border-slate-100">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-idblack mb-1">
+                Lo que descubre nuestro algoritmo:
+              </div>
+              <p class="text-xs sm:text-sm text-slate-800 leading-relaxed">
+                Un cuadre ciego entre las salidas de almacén y las facturas timbradas, revelando exactamente dónde se perdió la trazabilidad del producto.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">
+              Resultado en Sistema:
+            </span>
+            <span class="text-xs font-black text-idgreen uppercase mt-0.5 block">
+              Trazabilidad 100% Recuperada
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECCIÓN 3: GRÁFICAS DE IMPACTO (BLANCO CON BORDES SUAVES)-->
+  <!-- ======================================================== -->
+  <section id="graficas" class="bg-idwhite py-20 border-b border-idborder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <div class="inline-block bg-idblack text-idyellow text-xs font-bold uppercase px-3 py-1 rounded-full mb-3">
+          Datos Reales vs Suposiciones
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-idblack tracking-tight uppercase">
+          Gráficas de Impacto: El Costo Real De Los Datos Descuadrados
+        </h2>
+        <p class="mt-3 text-slate-600 text-base">
+          En empresas medianas y grandes, los errores en hojas de cálculo y sistemas desarticulados acumulan pérdidas invisibles equivalentes al <strong class="text-idblack font-bold">1.5% al 3.5% de la facturación total</strong>.
+        </p>
+      </div>
+
+      <!-- Selector interactivo de giro de empresa -->
+      <div class="flex flex-wrap items-center gap-3 mb-8">
+        <span class="text-xs font-bold uppercase text-slate-500 mr-1">Seleccionar Perfil:</span>
+        <button onclick="changeIndustry('mayorista')" id="btn-ind-mayorista" class="px-4 py-2 bg-idblack text-idyellow font-bold text-xs uppercase tracking-wider rounded-xl transition-all">
+          Empresa Mayorista
+        </button>
+        <button onclick="changeIndustry('financiera')" id="btn-ind-financiera" class="px-4 py-2 bg-idgray text-slate-700 font-bold text-xs uppercase tracking-wider rounded-xl border border-slate-200 hover:bg-slate-200 transition-all">
+          Financiera / SOFOM
+        </button>
+        <button onclick="changeIndustry('distribucion')" id="btn-ind-distribucion" class="px-4 py-2 bg-idgray text-slate-700 font-bold text-xs uppercase tracking-wider rounded-xl border border-slate-200 hover:bg-slate-200 transition-all">
+          Distribución Retail
+        </button>
+      </div>
+
+      <!-- Grid de 2 Gráficas Planas Redondeadas -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Gráfica 1: Fuga Acumulada vs Ahorro Salvado -->
+        <div class="lg:col-span-7 rounded-2xl border border-slate-200 p-6 sm:p-8 bg-idwhite">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+            <div>
+              <h3 class="text-base font-bold text-idblack uppercase" id="chart1-title">
+                Pérdida Acumulada vs Margen Protegido (12 Meses)
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">Cifras en Miles de Pesos (MXN)</p>
+            </div>
+            <span class="text-xs bg-idyellow px-3 py-1 rounded-full font-bold text-idblack">
+              Comparativa Anual
+            </span>
+          </div>
+          
+          <div class="h-72 sm:h-80 w-full relative">
+            <canvas id="chartFugaTimeline"></canvas>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 grid grid-cols-2 gap-4 text-xs">
+            <div class="p-4 bg-idgray rounded-xl border border-slate-100">
+              <span class="text-slate-500 block uppercase font-semibold text-[11px]">Fuga proyectada sin conciliar</span>
+              <span class="text-lg font-black text-idred mt-0.5 block" id="stat-fuga-anual">$2,100,000 MXN</span>
+            </div>
+            <div class="p-4 bg-idyellow/30 rounded-xl border border-idyellow/60">
+              <span class="text-idblack block uppercase font-bold text-[11px]">Dinero salvado con Iddenox</span>
+              <span class="text-lg font-black text-idblack mt-0.5 block" id="stat-ahorro-anual">$1,890,000 MXN</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gráfica 2: Distribución de Discrepancias Frecuentes -->
+        <div class="lg:col-span-5 rounded-2xl border border-slate-200 p-6 sm:p-8 bg-idwhite">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+            <div>
+              <h3 class="text-base font-bold text-idblack uppercase">
+                Top Fugas Encontradas
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">Desglose porcentual en auditorías</p>
+            </div>
+          </div>
+
+          <div class="h-60 sm:h-72 w-full relative flex items-center justify-center">
+            <canvas id="chartDiscrepancias"></canvas>
+          </div>
+
+          <!-- Leyenda redondeada con porcentajes -->
+          <div class="mt-6 space-y-2 text-xs">
+            <div class="flex items-center justify-between p-3 bg-idgray rounded-xl border border-slate-100">
+              <span class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-idblack inline-block"></span>
+                <span class="font-semibold text-slate-800">Facturas SAT canceladas sin registro</span>
+              </span>
+              <span class="font-extrabold text-idblack">42%</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-idgray rounded-xl border border-slate-100">
+              <span class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-idyellow inline-block"></span>
+                <span class="font-semibold text-slate-800">Salidas de almacén sin facturar</span>
+              </span>
+              <span class="font-extrabold text-idblack">28%</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-idgray rounded-xl border border-slate-100">
+              <span class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-idred inline-block"></span>
+                <span class="font-semibold text-slate-800">Comisiones y retenciones bancarias</span>
+              </span>
+              <span class="font-extrabold text-idblack">18%</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-idgray rounded-xl border border-slate-100">
+              <span class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-slate-400 inline-block"></span>
+                <span class="font-semibold text-slate-800">Pagos duplicados a proveedores</span>
+              </span>
+              <span class="font-extrabold text-idblack">12%</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECCIÓN 4: MOTOR DE CONCILIACIÓN (BLANCO CON BORDES SUAVES)-->
+  <!-- ======================================================== -->
+  <section id="motor" class="bg-idwhite py-20 border-b border-idborder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-16">
+        <div class="inline-block bg-idblack text-idyellow text-xs font-bold uppercase px-3 py-1 rounded-full mb-3">
+          Tecnología de Datos Iddenox
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-idblack tracking-tight uppercase">
+          Toda Tu Verdad Operativa En Un Solo Motor De Conciliación
+        </h2>
+        <p class="mt-3 text-slate-600 text-base">
+          No necesitas migrar de ERP ni contratar más personal contable. Nuestro motor se conecta a tus fuentes de datos existentes y realiza el cruce algorítmico en segundos.
+        </p>
+      </div>
+
+      <!-- 4 Módulos Técnicos Redondeados -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Módulo 1 -->
+        <div class="rounded-2xl border border-slate-200 p-6 bg-idwhite flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-idblack text-idyellow font-extrabold flex items-center justify-center text-sm mb-5">
+              01
+            </div>
+            <h3 class="text-base font-bold text-idblack uppercase mb-2">
+              Conciliación Bancaria Diaria
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Cruce automatizado de estados de cuenta de todos tus bancos (BBVA, Banorte, Santander, pasarelas) contra pólizas contables y cobranza aplicada.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 text-xs text-idblack font-bold">
+            &bull; Detección de comisiones fantasma
+          </div>
+        </div>
+
+        <!-- Módulo 2 -->
+        <div class="rounded-2xl border border-slate-200 p-6 bg-idwhite flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-idyellow text-idblack font-extrabold flex items-center justify-center text-sm mb-5">
+              02
+            </div>
+            <h3 class="text-base font-bold text-idblack uppercase mb-2">
+              Auditoría SAT CFDI 4.0
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Comparación exhaustiva de los XML emitidos y recibidos en el repositorio del SAT contra las ventas registradas en tu ERP (Aspel, SAP, Microsip, Dynamics).
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 text-xs text-idblack font-bold">
+            &bull; Alerta de cancelaciones sin aviso
+          </div>
+        </div>
+
+        <!-- Módulo 3 -->
+        <div class="rounded-2xl border border-slate-200 p-6 bg-idwhite flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-idblack text-idyellow font-extrabold flex items-center justify-center text-sm mb-5">
+              03
+            </div>
+            <h3 class="text-base font-bold text-idblack uppercase mb-2">
+              Kardex vs Almacén Físico
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Detección de diferencias entre las órdenes de entrega de bodega, el inventario teórico del sistema y las facturas timbradas a clientes.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 text-xs text-idblack font-bold">
+            &bull; Freno a inventario fantasma
+          </div>
+        </div>
+
+        <!-- Módulo 4 -->
+        <div class="rounded-2xl border border-slate-200 p-6 bg-idwhite flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-idyellow text-idblack font-extrabold flex items-center justify-center text-sm mb-5">
+              04
+            </div>
+            <h3 class="text-base font-bold text-idblack uppercase mb-2">
+              Alertas para Dirección
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Reporte ejecutivo semanal directo al Director de Finanzas y Contralor con el monto exacto en pesos de las discrepancias detectadas y resueltas.
+            </p>
+          </div>
+          <div class="mt-5 pt-4 border-t border-slate-100 text-xs text-idblack font-bold">
+            &bull; Resumen de ROI y saldo protegido
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Compatibilidad Técnica & Protocolo de Datos Anonimizados -->
+      <div class="mt-12 rounded-3xl border border-slate-200 p-6 sm:p-8 bg-idgray">
+        <p class="text-xs uppercase tracking-widest text-slate-500 font-bold mb-4 text-center">
+          Conexión inmediata con tus herramientas actuales:
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-7 text-xs sm:text-sm font-bold text-idblack pb-6 border-b border-slate-200">
+          <span class="bg-idwhite px-3 py-1.5 rounded-lg border border-slate-200">MICROSOFT DYNAMICS</span>
+          <span class="bg-idwhite px-3 py-1.5 rounded-lg border border-slate-200">SAP BUSINESS ONE</span>
+          <span class="bg-idwhite px-3 py-1.5 rounded-lg border border-slate-200">ASPEL SAE</span>
+          <span class="bg-idwhite px-3 py-1.5 rounded-lg border border-slate-200">MICROSIP</span>
+          <span class="bg-idwhite px-3 py-1.5 rounded-lg border border-slate-200">INTELISIS</span>
+          <span class="bg-idwhite px-3 py-1.5 rounded-lg border border-slate-200">CFDI 4.0 XML</span>
+          <span class="bg-idwhite px-3 py-1.5 rounded-lg border border-slate-200">SQL / CSV / EXCEL</span>
+        </div>
+
+        <!-- Protocolo de Protección y Datos Anonimizados -->
+        <div class="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-idwhite p-4 sm:p-5 rounded-2xl border border-slate-200">
+          <div class="flex items-start space-x-3.5">
+            <div class="w-9 h-9 rounded-xl bg-idblack text-idyellow flex items-center justify-center font-bold text-base shrink-0 mt-0.5">
+              &#128274;
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-idblack block">
+                Privacidad Total: Datos Anonimizados & Uso Exclusivamente Estadístico
+              </span>
+              <p class="text-xs text-slate-600 leading-relaxed mt-1">
+                Tu empresa nos proporciona únicamente <strong class="text-idblack font-bold">datos anonimizados</strong> (sin nombres sensibles ni información confidencial de clientes). En Iddenox los procesamos <strong class="text-idblack font-bold">únicamente como instrumentos estadísticos y algorítmicos</strong> para generar el reporte de discrepancias. Nosotros solo te entregamos el resultado final para que mantengas el control absoluto y la privacidad de tu negocio bajo estricto convenio de confidencialidad (NDA).
+              </p>
+            </div>
+          </div>
+          <div class="shrink-0 sm:self-center">
+            <span class="px-3.5 py-1.5 bg-idyellow/40 text-idblack font-extrabold text-[11px] uppercase tracking-wider rounded-lg border border-idyellow/60 block text-center">
+              100% Blindado
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECCIÓN 5: SIMULADOR DE FUGAS & ROI (AMARILLO #F4D036)    -->
+  <!-- ======================================================== -->
+  <section id="simulador" class="bg-idyellow py-20 border-b border-black/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-block bg-idblack text-idyellow text-xs font-bold uppercase px-3 py-1 rounded-full mb-2">
+          Calculadora Financiera
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-idblack tracking-tight uppercase">
+          ¿Cuánto Dinero Pierde Tu Empresa Por Datos Desfasados?
+        </h2>
+        <p class="mt-3 text-idblack text-sm font-medium">
+          Mueve los controles para estimar la fuga oculta anual según el volumen de facturación de tu empresa.
+        </p>
+      </div>
+
+      <div class="bg-idwhite rounded-3xl p-7 sm:p-10 border border-black/5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Controles del simulador -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <div>
+              <div class="flex justify-between text-xs sm:text-sm font-bold mb-2">
+                <label class="text-idblack uppercase">Facturación Mensual Estimada</label>
+                <span id="label-facturacion" class="text-base font-extrabold bg-idblack text-idyellow px-3 py-1 rounded-lg">$5,000,000 MXN</span>
+              </div>
+              <input id="slider-facturacion" type="range" min="1000000" max="40000000" step="500000" value="5000000" class="w-full h-2.5 bg-slate-200 rounded-lg">
+              <div class="flex justify-between text-[11px] text-slate-500 font-semibold mt-1.5">
+                <span>$1M MXN</span>
+                <span>$20M MXN</span>
+                <span>$40M+ MXN</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs sm:text-sm font-bold mb-2">
+                <label class="text-idblack uppercase">Tasa Estimada de Discrepancia</label>
+                <span id="label-tasa" class="text-base font-extrabold bg-idyellow text-idblack px-3 py-1 rounded-lg">2.5%</span>
+              </div>
+              <input id="slider-tasa" type="range" min="1.0" max="5.0" step="0.5" value="2.5" class="w-full h-2.5 bg-slate-200 rounded-lg">
+              <div class="flex justify-between text-[11px] text-slate-500 font-semibold mt-1.5">
+                <span>1.0% (Mínima)</span>
+                <span>2.5% (Promedio en la Industria)</span>
+                <span>5.0% (Descontrol Severo)</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-500 italic pt-1">
+              * Calculado con base en la métrica promedio de la industria donde las mermas no conciliadas, facturas canceladas y notas de crédito huérfanas promedian entre 1.5% y 3.5% del flujo total.
+            </p>
+          </div>
+
+          <!-- Panel de Resultados Redondeado -->
+          <div class="lg:col-span-5 bg-idblack text-idwhite p-8 rounded-2xl text-center">
+            <span class="text-xs uppercase text-slate-400 font-bold tracking-wider">
+              Fuga Anual Oculta Estimada
+            </span>
+            
+            <div id="resultado-fuga" class="text-3xl sm:text-4xl font-black text-idyellow my-4">
+              $1,500,000 MXN
+            </div>
+            
+            <p class="text-xs text-slate-300 mb-6">
+              Recursos que desaparecen anualmente en pedidos cancelados, inventario no aclarado y cobros desfasados.
+            </p>
+
+            <div class="pt-6 border-t border-slate-800">
+              <span class="text-xs text-idgreen font-bold uppercase tracking-wider block">
+                Retorno Estimado con Iddenox
+              </span>
+              <div class="text-2xl font-black text-white mt-1">&gt; 10x ROI</div>
+              <p class="text-[11px] text-slate-400 mt-1">
+                La inversión se paga sola al recuperar las primeras discrepancias en el mes 1.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECCIÓN 6: ESTRUCTURA COMERCIAL (BLANCO CON BORDES SUAVES)-->
+  <!-- ======================================================== -->
+  <section id="poliza" class="bg-idwhite py-20 border-b border-idborder">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-block bg-idblack text-idyellow text-xs font-bold uppercase px-3 py-1 rounded-full mb-3">
+          Transparencia Total
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-idblack tracking-tight uppercase">
+          Inversión Corporativa Clara y Sin Sorpresas
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm">
+          Comenzamos con un diagnóstico inicial sin costo sobre 50 filas. Solo contratas si los datos demuestran que el ahorro supera con creces la inversión.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Fase 1: Setup & Auditoría -->
+        <div class="rounded-3xl border border-slate-200 bg-idwhite p-8 sm:p-9 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Etapa 1: Setup Inicial</span>
+              <span class="text-xs font-extrabold bg-idblack text-idwhite px-3 py-1 rounded-full">3 Meses</span>
+            </div>
+
+            <h3 class="text-2xl font-black text-idblack uppercase">
+              Auditoría Forense & Setup
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 mb-6">
+              Implementación de conectores y depuración completa de históricos.
+            </p>
+
+            <div class="mb-6 p-4 bg-idgray rounded-2xl border border-slate-100">
+              <span class="text-3xl font-black text-idblack">$45,000</span>
+              <span class="text-xs text-slate-600 font-semibold block mt-0.5">MXN total (Diferido en 3 cuotas mensuales de $15,000)</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-700 font-medium">
+              <li class="flex items-start space-x-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span>Auditoría forense de discrepancias históricas (hasta 12 meses).</span>
+              </li>
+              <li class="flex items-start space-x-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span>Desarrollo de scripts y algoritmos de conciliación a medida.</span>
+              </li>
+              <li class="flex items-start space-x-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span>Cruce directo de CFDI 4.0 SAT vs WMS Almacén vs ERP.</span>
+              </li>
+              <li class="flex items-start space-x-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span>Entrega de tableros ejecutivos de alerta temprana.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <a href="#contacto" class="block w-full py-3.5 bg-idblack text-idyellow font-bold text-xs uppercase tracking-wider text-center rounded-xl hover:bg-idyellow hover:text-idblack transition-all">
+              Iniciar con Piloto Gratuito
+            </a>
+          </div>
+        </div>
+
+        <!-- Fase 2: Póliza de Continuidad -->
+        <div class="rounded-3xl border border-slate-200 bg-idwhite p-8 sm:p-9 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Etapa 2: Continuidad</span>
+              <span class="text-xs font-extrabold bg-idyellow text-idblack px-3 py-1 rounded-full">Recurrente</span>
+            </div>
+
+            <h3 class="text-2xl font-black text-idblack uppercase">
+              Póliza de Monitoreo Continuo
+            </h3>
+            <p class="text-xs text-slate-500 mt-1 mb-6">
+              Desde el mes 4 en adelante. Protección activa semana a semana.
+            </p>
+
+            <div class="mb-6 p-4 bg-idyellow/30 rounded-2xl border border-idyellow/50">
+              <span class="text-3xl font-black text-idblack">$8,000</span>
+              <span class="text-xs text-idblack font-semibold block mt-0.5">MXN / mes &bull; Cancelación libre en cualquier momento</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-700 font-medium">
+              <li class="flex items-start space-x-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span>Ejecución recurrente y automática de conciliaciones semanales.</span>
+              </li>
+              <li class="flex items-start space-x-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span>Reporte ejecutivo semanal de descuadres para Dirección.</span>
+              </li>
+              <li class="flex items-start space-x-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span>Mantenimiento y adaptación a nuevos catálogos, SKUs y cuentas.</span>
+              </li>
+              <li class="flex items-start space-x-2.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span>Soporte prioritario y cero contratos forzosos.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <a href="mailto:contacto@iddenox.com?subject=Consulta%20P%C3%B3liza%20de%20Monitoreo%20Continuo%20-%20Iddenox" class="block w-full py-3.5 bg-idgray text-idblack font-bold text-xs uppercase tracking-wider text-center rounded-xl border border-slate-200 hover:bg-idblack hover:text-idwhite transition-all">
+              Consultar Información por Correo
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECCIÓN 7: FORMULARIO DE DIAGNÓSTICO (AMARILLO #F4D036)   -->
+  <!-- ======================================================== -->
+  <section id="contacto" class="bg-idyellow py-20 border-b border-black/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-idwhite rounded-3xl p-8 sm:p-12 border border-black/5">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <div class="inline-block bg-idblack text-idyellow text-xs font-bold uppercase px-3.5 py-1 rounded-full mb-2">
+            Cero Riesgo // Compromiso Iddenox
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-idblack tracking-tight uppercase">
+            Solicita Tu Auditoría Piloto Gratuita (50 Filas)
+          </h2>
+          <p class="mt-3 text-slate-600 text-sm">
+            Envíanos una muestra anonimizada de tu catálogo, facturación o almacén. En 48 horas te entregamos un diagnóstico con las discrepancias exactas encontradas.
+          </p>
+        </div>
+
+        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-5 max-w-2xl mx-auto">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold uppercase text-idblack mb-1.5">Nombre y Cargo</label>
+              <input type="text" id="form-nombre" required placeholder="Ej: Director de Finanzas / Contralor" class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase text-idblack mb-1.5">Empresa</label>
+              <input type="text" id="form-empresa" required placeholder="Ej: Comercializadora Nacional SA" class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold uppercase text-idblack mb-1.5">Correo Corporativo</label>
+              <input type="email" id="form-correo" required placeholder="contacto@empresa.com" class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase text-idblack mb-1.5">Sistema / ERP Actual</label>
+              <input type="text" id="form-erp" placeholder="Dynamics, SAP B1, Aspel, Excel..." class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-idblack mb-1.5">Punto de Dolor Principal (Opcional)</label>
+            <textarea id="form-mensaje" rows="3" placeholder="Ej: No nos cuadra el inventario de almacén contra las facturas emitidas, o tenemos sospecha de facturas canceladas en el SAT..." class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 bg-idblack text-idyellow font-black text-sm uppercase tracking-wider rounded-xl hover:bg-idyellow hover:text-idblack border-2 border-idblack transition-all cursor-pointer">
+            Enviar Solicitud a contacto@iddenox.com &rarr;
+          </button>
+
+          <div class="pt-4 text-center">
+            <p class="text-[11px] text-slate-500 font-medium">
+              Tus datos están estrictamente protegidos. Firmamos convenio de confidencialidad (NDA) antes de manipular cualquier base de datos.
+            </p>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- FOOTER: NEGRO CORPORATIVO (#0C0E12) CON ACENTOS AMARILLOS -->
+  <!-- ======================================================== -->
+  <footer class="bg-idblack text-idwhite py-14 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-800 items-center">
+        
+        <!-- Logo en Footer -->
+        <div class="md:col-span-6 flex items-center space-x-3">
+          <img src="assets/logo_yellow_clean.png" alt="Iddenox Logo" class="h-10 w-auto object-contain">
+          <div>
+            <span class="text-2xl font-black tracking-tight text-white leading-none">Iddenox</span>
+            <p class="text-xs text-slate-400 mt-1">Conciliación Operativa & Automatización de Bases de Datos</p>
+          </div>
+        </div>
+
+        <!-- Contacto Directo Oficial -->
+        <div class="md:col-span-6 flex flex-col md:items-end space-y-1 text-xs">
+          <div class="flex items-center space-x-2">
+            <span class="text-idyellow font-bold">Contacto Corporativo:</span>
+            <a href="mailto:contacto@iddenox.com" class="text-white hover:text-idyellow transition-colors font-bold underline underline-offset-2">
+              contacto@iddenox.com
+            </a>
+          </div>
+          <div class="text-slate-400">
+            Ciudad de México, México &bull; Cobertura Nacional
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright y Leyenda Legal -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div>
+          &copy; 2026 Iddenox. Todos los derechos reservados.
+        </div>
+        <div class="flex items-center space-x-6">
+          <span>Confidencialidad Garantizada</span>
+          <span>&bull;</span>
+          <span>Cumplimiento LFPDPPP</span>
+          <span>&bull;</span>
+          <a href="#" class="hover:text-white">Términos de Servicio</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- SCRIPTS: CHARTS & SIMULATOR LOGIC                        -->
+  <!-- ======================================================== -->
+  <script>
+    const industryData = {
+      mayorista: {
+        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        fuga: [150, 310, 490, 680, 890, 1120, 1340, 1550, 1720, 1890, 2010, 2100],
+        ahorro: [140, 295, 460, 640, 830, 1040, 1230, 1420, 1580, 1710, 1810, 1890],
+        fugaTotal: '$2,100,000 MXN',
+        ahorroTotal: '$1,890,000 MXN',
+        discrepancias: [42, 28, 18, 12]
+      },
+      financiera: {
+        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        fuga: [80, 165, 255, 345, 435, 520, 610, 700, 785, 870, 955, 1040],
+        ahorro: [75, 155, 240, 325, 410, 490, 575, 660, 740, 820, 900, 980],
+        fugaTotal: '$1,040,000 MXN',
+        ahorroTotal: '$980,000 MXN',
+        discrepancias: [22, 14, 52, 12]
+      },
+      distribucion: {
+        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        fuga: [220, 450, 690, 940, 1210, 1480, 1750, 2030, 2310, 2600, 2880, 3150],
+        ahorro: [205, 420, 640, 875, 1120, 1370, 1620, 1880, 2140, 2410, 2670, 2920],
+        fugaTotal: '$3,150,000 MXN',
+        ahorroTotal: '$2,920,000 MXN',
+        discrepancias: [35, 45, 12, 8]
+      }
+    };
+
+    let currentIndustry = 'mayorista';
+    let chartTimelineInstance = null;
+    let chartDiscrepanciasInstance = null;
+
+    function initCharts() {
+      const ctx1 = document.getElementById('chartFugaTimeline').getContext('2d');
+      chartTimelineInstance = new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: industryData.mayorista.labels,
+          datasets: [
+            {
+              label: 'Pérdida Acumulada sin Conciliación ($k)',
+              data: industryData.mayorista.fuga,
+              borderColor: '#DC2626',
+              backgroundColor: '#DC2626',
+              borderWidth: 3,
+              pointBackgroundColor: '#DC2626',
+              pointRadius: 4,
+              pointHoverRadius: 6,
+              tension: 0.1,
+              fill: false
+            },
+            {
+              label: 'Margen Salvado con Iddenox ($k)',
+              data: industryData.mayorista.ahorro,
+              borderColor: '#0C0E12',
+              backgroundColor: '#0C0E12',
+              borderWidth: 3,
+              pointBackgroundColor: '#F4D036',
+              pointBorderColor: '#0C0E12',
+              pointBorderWidth: 2,
+              pointRadius: 5,
+              pointHoverRadius: 7,
+              tension: 0.1,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 350 },
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                boxWidth: 12,
+                font: { family: 'Poppins', size: 11, weight: '600' },
+                color: '#0C0E12'
+              }
+            },
+            tooltip: {
+              backgroundColor: '#0C0E12',
+              titleFont: { family: 'Poppins', size: 12, weight: '700' },
+              bodyFont: { family: 'Poppins', size: 12 },
+              padding: 10,
+              cornerRadius: 8,
+              displayColors: true
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: '#F1F5F9' },
+              ticks: { font: { family: 'Poppins', size: 11 }, color: '#64748B' }
+            },
+            y: {
+              grid: { color: '#F1F5F9' },
+              ticks: {
+                font: { family: 'Poppins', size: 11 },
+                color: '#64748B',
+                callback: function(value) { return '$' + value + 'k'; }
+              }
+            }
+          }
+        }
+      });
+
+      const ctx2 = document.getElementById('chartDiscrepancias').getContext('2d');
+      chartDiscrepanciasInstance = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ['SAT 4.0', 'Almacén', 'Bancos', 'Pagos'],
+          datasets: [{
+            label: '% del total detectado',
+            data: industryData.mayorista.discrepancias,
+            backgroundColor: [
+              '#0C0E12',
+              '#F4D036',
+              '#DC2626',
+              '#94A3B8'
+            ],
+            borderRadius: 8
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 350 },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0C0E12',
+              titleFont: { family: 'Poppins', size: 12, weight: '700' },
+              bodyFont: { family: 'Poppins', size: 12 },
+              padding: 8,
+              cornerRadius: 8,
+              callbacks: {
+                label: function(context) { return context.parsed.y + '% del total de discrepancias'; }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { font: { family: 'Poppins', size: 11, weight: '600' }, color: '#0C0E12' }
+            },
+            y: {
+              max: 60,
+              grid: { color: '#F1F5F9' },
+              ticks: {
+                font: { family: 'Poppins', size: 11 },
+                color: '#64748B',
+                callback: function(v) { return v + '%'; }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function changeIndustry(type) {
+      currentIndustry = type;
+      const data = industryData[type];
+      
+      const buttons = ['mayorista', 'financiera', 'distribucion'];
+      buttons.forEach(b => {
+        const btn = document.getElementById('btn-ind-' + b);
+        if (b === type) {
+          btn.className = "px-4 py-2 bg-idblack text-idyellow font-bold text-xs uppercase tracking-wider rounded-xl transition-all";
+        } else {
+          btn.className = "px-4 py-2 bg-idgray text-slate-700 font-bold text-xs uppercase tracking-wider rounded-xl border border-slate-200 hover:bg-slate-200 transition-all";
+        }
+      });
+
+      chartTimelineInstance.data.datasets[0].data = data.fuga;
+      chartTimelineInstance.data.datasets[1].data = data.ahorro;
+      chartTimelineInstance.update();
+
+      chartDiscrepanciasInstance.data.datasets[0].data = data.discrepancias;
+      chartDiscrepanciasInstance.update();
+
+      document.getElementById('stat-fuga-anual').textContent = data.fugaTotal;
+      document.getElementById('stat-ahorro-anual').textContent = data.ahorroTotal;
+    }
+
+    // Simulador de Fugas
+    const sliderFact = document.getElementById('slider-facturacion');
+    const sliderTasa = document.getElementById('slider-tasa');
+    const labelFact = document.getElementById('label-facturacion');
+    const labelTasa = document.getElementById('label-tasa');
+    const resultadoFuga = document.getElementById('resultado-fuga');
+
+    function updateCalculator() {
+      const factMensual = parseFloat(sliderFact.value);
+      const tasa = parseFloat(sliderTasa.value);
+      
+      labelFact.textContent = '$' + factMensual.toLocaleString('es-MX') + ' MXN';
+      labelTasa.textContent = tasa.toFixed(1) + '%';
+      
+      const fugaAnual = (factMensual * 12) * (tasa / 100);
+      resultadoFuga.textContent = '$' + Math.round(fugaAnual).toLocaleString('es-MX') + ' MXN';
+    }
+
+    sliderFact.addEventListener('input', updateCalculator);
+    sliderTasa.addEventListener('input', updateCalculator);
+    updateCalculator();
+
+    // Formulario de Contacto
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('form-nombre').value;
+      const empresa = document.getElementById('form-empresa').value;
+      const correo = document.getElementById('form-correo').value;
+      const erp = document.getElementById('form-erp').value;
+      const mensaje = document.getElementById('form-mensaje').value;
+
+      const subject = encodeURIComponent(`Solicitud de Auditoría Piloto (50 Filas) - ${empresa}`);
+      const body = encodeURIComponent(
+        `Solicitud de Diagnóstico Forense Iddenox\n\n` +
+        `Nombre y Cargo: ${nombre}\n` +
+        `Empresa: ${empresa}\n` +
+        `Correo: ${correo}\n` +
+        `Sistema/ERP actual: ${erp}\n` +
+        `Punto de dolor: ${mensaje}\n\n` +
+        `Favor de indicar el procedimiento seguro para el envío de la muestra anonimizada bajo acuerdo NDA.`
+      );
+
+      window.location.href = `mailto:contacto@iddenox.com?subject=${subject}&body=${body}`;
+    }
+
+    window.addEventListener('DOMContentLoaded', initCharts);
+  </script>
+</body>
+</html>
