@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iddenox | Conciliación Operativa & Automatización Financiera</title>
+  <link rel="icon" type="image/png" href="logo_yellow_clean.png">
   <meta name="description" content="Frena las fugas silenciosas de margen por datos desfasados, inventarios fantasma y discrepancias entre almacén, ERP, facturación SAT y bancos.">
   
   <!-- Google Fonts: Poppins (Regular, Medium, SemiBold, Bold, ExtraBold, Black) -->
@@ -935,33 +936,37 @@
           </p>
         </div>
 
-        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-5 max-w-2xl mx-auto">
+        <form action="https://formsubmit.co/contacto@iddenox.com" method="POST" class="space-y-5 max-w-2xl mx-auto">
           
+          <!-- Configuración oculta de FormSubmit -->
+          <input type="hidden" name="_subject" value="Nuevo Lead B2B - Iddenox">
+          <input type="hidden" name="_captcha" value="false">
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label class="block text-xs font-bold uppercase text-idblack mb-1.5">Nombre y Cargo</label>
-              <input type="text" id="form-nombre" required placeholder="Ej: Director de Finanzas / Contralor" class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
+              <input type="text" name="Nombre" required placeholder="Ej: Director de Finanzas / Contralor" class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
             </div>
             <div>
               <label class="block text-xs font-bold uppercase text-idblack mb-1.5">Empresa</label>
-              <input type="text" id="form-empresa" required placeholder="Ej: Comercializadora Nacional SA" class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
+              <input type="text" name="Empresa" required placeholder="Ej: Comercializadora Nacional SA" class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label class="block text-xs font-bold uppercase text-idblack mb-1.5">Correo Corporativo</label>
-              <input type="email" id="form-correo" required placeholder="contacto@empresa.com" class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
+              <input type="email" name="Correo" required placeholder="contacto@empresa.com" class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
             </div>
             <div>
               <label class="block text-xs font-bold uppercase text-idblack mb-1.5">Sistema / ERP Actual</label>
-              <input type="text" id="form-erp" placeholder="Dynamics, SAP B1, Aspel, Excel..." class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
+              <input type="text" name="ERP" placeholder="Dynamics, SAP B1, Aspel, Excel..." class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack">
             </div>
           </div>
 
           <div>
             <label class="block text-xs font-bold uppercase text-idblack mb-1.5">Punto de Dolor Principal (Opcional)</label>
-            <textarea id="form-mensaje" rows="3" placeholder="Ej: No nos cuadra el inventario de almacén contra las facturas emitidas, o tenemos sospecha de facturas canceladas en el SAT..." class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack"></textarea>
+            <textarea name="Mensaje" rows="3" placeholder="Ej: No nos cuadra el inventario de almacén contra las facturas emitidas, o tenemos sospecha de facturas canceladas en el SAT..." class="w-full px-4 py-3 bg-idgray rounded-xl border border-slate-200 text-idblack text-sm placeholder-slate-400 focus:outline-none focus:border-idblack"></textarea>
           </div>
 
           <button type="submit" class="w-full py-4 bg-idblack text-idyellow font-black text-sm uppercase tracking-wider rounded-xl hover:bg-idyellow hover:text-idblack border-2 border-idblack transition-all cursor-pointer">
@@ -973,8 +978,8 @@
               Tus datos están estrictamente protegidos. Firmamos convenio de confidencialidad (NDA) antes de manipular cualquier base de datos.
             </p>
           </div>
-
         </form>
+        
 
       </div>
 
