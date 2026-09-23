@@ -798,30 +798,59 @@
   </section>
 
   <!-- ======================================================== -->
-  <!-- SECCIÓN 6: ESTRUCTURA COMERCIAL (BLANCO CON BORDES SUAVES)-->
+  <!-- SECCIÓN 6: LÍNEA DE TIEMPO / ETAPAS CRONOLÓGICAS          -->
   <!-- ======================================================== -->
   <section id="poliza" class="bg-idwhite py-20 border-b border-idborder">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="text-center max-w-2xl mx-auto mb-14">
         <div class="inline-block bg-idblack text-idyellow text-xs font-bold uppercase px-3 py-1 rounded-full mb-3">
-          Transparencia Total
+          Metodología de Trabajo
         </div>
         <h2 class="text-3xl sm:text-4xl font-black text-idblack tracking-tight uppercase">
-          Inversión Corporativa Clara y Sin Sorpresas
+          Estructura de Trabajo en 2 Etapas Cronológicas
         </h2>
-        <p class="mt-3 text-slate-600 text-sm">
-          Comenzamos con un diagnóstico inicial sin costo sobre 50 filas. Solo contratas si los datos demuestran que el ahorro supera con creces la inversión.
+        <p class="mt-3 text-slate-600 text-sm sm:text-base">
+          Un proceso ordenado en línea de tiempo: desde la auditoría y puesta a punto inicial, hasta la protección continua semana a semana.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Barra Conectora de Línea de Tiempo (Desktop) -->
+      <div class="hidden md:flex items-center justify-between max-w-3xl mx-auto mb-10 px-6 relative">
+        <div class="absolute left-16 right-16 top-1/2 -translate-y-1/2 h-1 bg-slate-200 -z-0"></div>
         
-        <!-- Fase 1: Setup & Auditoría -->
-        <div class="rounded-3xl border border-slate-200 bg-idwhite p-8 sm:p-9 flex flex-col justify-between">
+        <div class="flex items-center space-x-3 bg-idwhite pr-4 relative z-10">
+          <div class="w-10 h-10 rounded-full bg-idblack text-idyellow font-black flex items-center justify-center text-sm">
+            01
+          </div>
+          <div>
+            <span class="text-xs font-black uppercase text-idblack block">Fase 1: Setup</span>
+            <span class="text-[11px] text-slate-500 font-semibold">Meses 1 al 3</span>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3 bg-idwhite pl-4 relative z-10">
+          <div class="w-10 h-10 rounded-full bg-idyellow text-idblack font-black flex items-center justify-center text-sm border-2 border-idblack">
+            02
+          </div>
+          <div>
+            <span class="text-xs font-black uppercase text-idblack block">Fase 2: Continuidad</span>
+            <span class="text-[11px] text-slate-500 font-semibold">Mes 4 en adelante</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid de 2 Tarjetas Cronológicas -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+        
+        <!-- Etapa 1: Setup Inicial -->
+        <div class="rounded-3xl border border-slate-200 bg-idwhite p-8 sm:p-9 flex flex-col justify-between relative">
           <div>
             <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Etapa 1: Setup Inicial</span>
+              <div class="flex items-center space-x-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-idblack inline-block"></span>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-600">Etapa 1: Setup Inicial</span>
+              </div>
               <span class="text-xs font-extrabold bg-idblack text-idwhite px-3 py-1 rounded-full">3 Meses</span>
             </div>
 
@@ -832,26 +861,31 @@
               Implementación de conectores y depuración completa de históricos.
             </p>
 
+            <!-- Bloque Institucional en sustitución del precio fijo -->
             <div class="mb-6 p-4 bg-idgray rounded-2xl border border-slate-100">
-              <span class="text-3xl font-black text-idblack">$60,000</span>
-              <span class="text-xs text-slate-600 font-semibold block mt-0.5">MXN total (Diferido en 3 cuotas mensuales de $20,000)</span>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-idblack block mb-0.5">
+                Inversión a la Medida
+              </span>
+              <p class="text-xs text-slate-600 font-medium leading-relaxed">
+                Cotización formal entregada junto con el reporte de diagnóstico piloto, calculada según el volumen de fuentes, almacenes y ERP de tu empresa.
+              </p>
             </div>
 
             <ul class="space-y-3 text-xs text-slate-700 font-medium">
               <li class="flex items-start space-x-2.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5 shrink-0"></span>
                 <span>Auditoría forense de discrepancias históricas (hasta 12 meses).</span>
               </li>
               <li class="flex items-start space-x-2.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5 shrink-0"></span>
                 <span>Desarrollo de scripts y algoritmos de conciliación a medida.</span>
               </li>
               <li class="flex items-start space-x-2.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5 shrink-0"></span>
                 <span>Cruce directo de CFDI 4.0 SAT vs WMS Almacén vs ERP.</span>
               </li>
               <li class="flex items-start space-x-2.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5 shrink-0"></span>
                 <span>Entrega de tableros ejecutivos de alerta temprana.</span>
               </li>
             </ul>
@@ -859,17 +893,20 @@
 
           <div class="mt-8 pt-4 border-t border-slate-100">
             <a href="#contacto" class="block w-full py-3.5 bg-idblack text-idyellow font-bold text-xs uppercase tracking-wider text-center rounded-xl hover:bg-idyellow hover:text-idblack transition-all">
-              Iniciar con Piloto Gratuito
+              Iniciar con Piloto Gratuito &rarr;
             </a>
           </div>
         </div>
 
-        <!-- Fase 2: Póliza de Continuidad -->
-        <div class="rounded-3xl border border-slate-200 bg-idwhite p-8 sm:p-9 flex flex-col justify-between">
+        <!-- Etapa 2: Continuidad Recurrente -->
+        <div class="rounded-3xl border border-slate-200 bg-idwhite p-8 sm:p-9 flex flex-col justify-between relative">
           <div>
             <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Etapa 2: Continuidad</span>
-              <span class="text-xs font-extrabold bg-idyellow text-idblack px-3 py-1 rounded-full">Recurrente</span>
+              <div class="flex items-center space-x-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-idyellow inline-block"></span>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-600">Etapa 2: Continuidad</span>
+              </div>
+              <span class="text-xs font-extrabold bg-idyellow text-idblack px-3 py-1 rounded-full border border-black/10">Recurrente</span>
             </div>
 
             <h3 class="text-2xl font-black text-idblack uppercase">
@@ -879,26 +916,31 @@
               Desde el mes 4 en adelante. Protección activa semana a semana.
             </p>
 
+            <!-- Bloque Institucional en sustitución del precio fijo -->
             <div class="mb-6 p-4 bg-idyellow/30 rounded-2xl border border-idyellow/50">
-              <span class="text-3xl font-black text-idblack">$12,000</span>
-              <span class="text-xs text-idblack font-semibold block mt-0.5">MXN / mes &bull; Cancelación libre en cualquier momento</span>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-idblack block mb-0.5">
+                Cuota Mensual Fija y Transparente
+              </span>
+              <p class="text-xs text-idblack font-medium leading-relaxed">
+                Póliza mensual accesible ajustada a tu operación &bull; Cancelación libre en cualquier momento sin contratos forzosos ni penalizaciones.
+              </p>
             </div>
 
             <ul class="space-y-3 text-xs text-slate-700 font-medium">
               <li class="flex items-start space-x-2.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5 shrink-0"></span>
                 <span>Ejecución recurrente y automática de conciliaciones semanales.</span>
               </li>
               <li class="flex items-start space-x-2.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5 shrink-0"></span>
                 <span>Reporte ejecutivo semanal de descuadres para Dirección.</span>
               </li>
               <li class="flex items-start space-x-2.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5 shrink-0"></span>
                 <span>Mantenimiento y adaptación a nuevos catálogos, SKUs y cuentas.</span>
               </li>
               <li class="flex items-start space-x-2.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-idblack mt-1.5 shrink-0"></span>
                 <span>Soporte prioritario y cero contratos forzosos.</span>
               </li>
             </ul>
